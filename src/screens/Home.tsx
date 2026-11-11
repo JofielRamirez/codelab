@@ -30,9 +30,9 @@ export function Home({ progress, onPlay, onReset }: Props) {
   return (
     <div className="min-h-full dot-bg overflow-x-hidden">
       {/* Encabezado */}
-      <header className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
+      <header className="max-w-6xl mx-auto flex items-center justify-between gap-3 px-4 sm:px-6 py-4">
         <Logo />
-        <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm border-2 border-violet-100 font-extrabold">
+        <div className="shrink-0 whitespace-nowrap flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm border-2 border-violet-100 font-extrabold">
           <Star size={18} className="fill-amber-400 text-amber-500" />
           {stars} / {maxStars}
         </div>
