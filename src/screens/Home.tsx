@@ -42,7 +42,7 @@ export function Home({ progress, onPlay, onReset }: Props) {
       <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-4 pb-10 grid lg:grid-cols-[1.15fr_1fr] gap-10 items-center">
         <div className="animate-fade-up">
           <span className="inline-flex items-center gap-2 rounded-full bg-violet-100 text-violet-700 px-4 py-1.5 text-sm font-extrabold">
-            <Rocket size={16} /> Sin experiencia previa · 3 misiones
+            <Rocket size={16} /> Sin experiencia previa · {LEVELS.length} misiones
           </span>
           <h1 className="mt-4 font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-indigo-950">
             ¡Tu aventura como{' '}

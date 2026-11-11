@@ -40,7 +40,7 @@ export const BlocklyEditor = forwardRef<BlocklyEditorHandle, Props>(function Blo
     registerBlocks();
     const el = host.current!;
     const ws = Blockly.inject(el, {
-      toolbox: buildToolbox(level.id),
+      toolbox: buildToolbox(level),
       theme: createTheme(),
       renderer: 'zelos',
       media: './blockly-media/',

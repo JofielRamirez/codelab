@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { LEVELS } from '../data/levels';
 
-const KEY = 'codelab-progress-v1';
+// v2: los niveles se renumeraron al pasar de 3 a 10 misiones
+const KEY = 'codelab-progress-v2';
 
 export interface Progress {
   /** estrellas obtenidas por nivel (0 = no completado) */
@@ -72,7 +73,7 @@ export function useProgress() {
   return { progress, completeLevel, markIntro, resetProgress };
 }
 
-export const workspaceKey = (levelId: number) => `codelab-workspace-${levelId}`;
+export const workspaceKey = (levelId: number) => `codelab-workspace-v2-${levelId}`;
 
 export function loadWorkspace(levelId: number): object | null {
   try {

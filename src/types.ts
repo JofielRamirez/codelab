@@ -13,6 +13,8 @@ export interface LevelDef {
   concept: string;
   difficulty: Difficulty;
   color: string;
+  /** Bloques disponibles: 1 = movimiento, 2 = + repetir, 3 = + condiciones */
+  tools: 1 | 2 | 3;
   /** Mapa: . vacío, # roca, * estrella, G meta, R robot */
   map: string[];
   startDir: Direction;

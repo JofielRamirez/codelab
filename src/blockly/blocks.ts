@@ -1,5 +1,7 @@
 import * as Blockly from 'blockly/core';
 import * as Es from 'blockly/msg/es';
+import type { LevelDef } from '../types';
+import { firstLevelWithTools } from '../data/levels';
 
 export const COLORS = {
   events: '#eab308',
@@ -152,16 +154,18 @@ const lockLabel = (level: number): ToolboxItem => ({
 });
 
 /** Caja de herramientas: las categorías se van llenando conforme avanzan los niveles. */
-export function buildToolbox(levelId: number) {
+export function buildToolbox(level: LevelDef) {
   const block = (type: string, extra: ToolboxItem = {}): ToolboxItem => ({ kind: 'block', type, ...extra });
+  const { tools } = level;
+  const firstLoops = firstLevelWithTools(2);
 
   const control: ToolboxItem[] = [];
-  if (levelId >= 2) control.push(block('codelab_repeat', { fields: { TIMES: levelId === 2 ? 4 : 3 } }));
-  if (levelId >= 3) control.push(block('codelab_until_goal'), block('codelab_if'), block('codelab_ifelse'));
-  if (levelId < 2) control.push(lockLabel(2));
+  if (tools >= 2) control.push(block('codelab_repeat', { fields: { TIMES: level.id === firstLoops ? 4 : 3 } }));
+  if (tools >= 3) control.push(block('codelab_until_goal'), block('codelab_if'), block('codelab_ifelse'));
+  if (tools < 2) control.push(lockLabel(firstLoops));
 
   const logic: ToolboxItem[] =
-    levelId >= 3 ? [block('codelab_obstacle'), block('codelab_clear')] : [lockLabel(3)];
+    tools >= 3 ? [block('codelab_obstacle'), block('codelab_clear')] : [lockLabel(firstLevelWithTools(3))];
 
   return {
     kind: 'categoryToolbox',
